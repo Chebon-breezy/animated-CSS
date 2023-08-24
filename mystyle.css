@@ -1,68 +1,65 @@
 :root {
-    --BTN_COLOR: #3498DB;
-    --BTN_HOVER_COLOR: #2980B9;
+    --primary-color: #3498db;
+    --secondary-color: #e74c3c;
   }
   
   body {
     margin: 0;
-    padding: 0;
-    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .header, 
-  .footer {
-    background: #2C3E50;
-    color: #ECF0F1;
-    flex: 0 0 auto;
-    padding: 20px;
-    text-align: center;
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
   }
   
-  .main-content {
-    flex: 1 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-  }
-  
-  .animated-button {
-    background-color: var(--BTN_COLOR);
-    border: none;
-    color: #ECF0F1;
-    padding: 15px 32px;
+  header, footer {
+    background-color: var(--primary-color);
+    color: white;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    border-radius: 4px;
+    padding: 1rem;
   }
   
-  .animated-button:hover {
-    background-color: var(--BTN_HOVER_COLOR);
-    animation: buttonEffect 1s infinite;
+  main {
+    padding: 2rem;
   }
   
-  @keyframes buttonEffect {
-    0% {box-shadow: 0 0 5px #333;}
-    50% {box-shadow: 0 0 10px #333, 0 0 20px #333;}
-    100% {box-shadow: 0 0 5px #333;}
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    padding: 1rem;
+  }
+  
+  .box {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .box:hover {
+    transform: scale(1.05);
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  .animated-bg {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background-size: 200% 200%;
+    animation: gradientAnimation 4s infinite alternate;
   }
   
   @media (max-width: 768px) {
-      .main-content {
-          padding: 10px;
-      }
-      
-      .animated-button {
-          font-size: 14px;
-          padding: 10px 20px;
-      }
+    .container {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
   }
   
