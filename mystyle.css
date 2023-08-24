@@ -1,0 +1,68 @@
+:root {
+    --BTN_COLOR: #3498DB;
+    --BTN_HOVER_COLOR: #2980B9;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #EECFBA, #C5DDE8);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header, 
+  .footer {
+    background: #2C3E50;
+    color: #ECF0F1;
+    flex: 0 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .main-content {
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .animated-button {
+    background-color: var(--BTN_COLOR);
+    border: none;
+    color: #ECF0F1;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 4px;
+  }
+  
+  .animated-button:hover {
+    background-color: var(--BTN_HOVER_COLOR);
+    animation: buttonEffect 1s infinite;
+  }
+  
+  @keyframes buttonEffect {
+    0% {box-shadow: 0 0 5px #333;}
+    50% {box-shadow: 0 0 10px #333, 0 0 20px #333;}
+    100% {box-shadow: 0 0 5px #333;}
+  }
+  
+  @media (max-width: 768px) {
+      .main-content {
+          padding: 10px;
+      }
+      
+      .animated-button {
+          font-size: 14px;
+          padding: 10px 20px;
+      }
+  }
+  
