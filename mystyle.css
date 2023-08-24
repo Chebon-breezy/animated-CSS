@@ -1,6 +1,11 @@
 :root {
     --primary-color: #3498db;
     --secondary-color: #e74c3c;
+    --box-color-1: #27ae60;
+    --box-color-2: #9b59b6;
+    --box-color-3: #e67e22;
+    --box-gradient-1: #f39c12, #e74c3c;
+    --box-gradient-2: #3498db, #2c3e50;
   }
   
   body {
@@ -29,32 +34,44 @@
   }
   
   .box {
-    background-color: var(--secondary-color);
     color: white;
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Incorporating blend mode */
+    mix-blend-mode: multiply;
+  }
+  
+  .box:nth-child(odd) {
+    background-color: var(--box-color-1);
+    background: linear-gradient(45deg, var(--box-gradient-1));
+  }
+  
+  .box:nth-child(even) {
+    background-color: var(--box-color-2);
+    background: linear-gradient(45deg, var(--box-gradient-2));
   }
   
   .box:hover {
     transform: scale(1.05);
   }
   
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
+  /* Styling for box buttons */
+  .box-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
   }
   
-  .animated-bg {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    background-size: 200% 200%;
-    animation: gradientAnimation 4s infinite alternate;
+  .box-button:hover {
+    background-color: var(--secondary-color);
   }
   
   @media (max-width: 768px) {
@@ -62,6 +79,4 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
   }
-
-  
   
